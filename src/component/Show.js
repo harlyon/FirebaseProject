@@ -36,24 +36,26 @@ class Show extends Component {
   }
 
   render() {
+    console.log(this.state.board)
     return (
-       <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
+       <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
           <h4><Link to="/">Board List</Link></h4>
-            <h3 class="panel-title">
+            <h3 className="panel-title">
               {this.state.board.title}
             </h3>
           </div>
-          <div class="panel-body">
-            <dl>
-              <dt>Description:</dt>
-              <dd>{this.state.board.description}</dd>
-              <dt>Author:</dt>
-              <dd>{this.state.board.author}</dd>
-            </dl>
-            <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
-            <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
+          <div className="panel-body">
+            <div>
+              <h2>Description:</h2>
+              <h4>{this.state.board.description}</h4>
+              <h2>Author:</h2>
+              <h4>{this.state.board.author}</h4>
+              <h4><img style={{height: "50px", width: "100px"}} src={this.state.board.image !== undefined ? this.state.board.image.avatarURL : ''} alt="it" /></h4>
+            </div>
+            <Link to={`/edit/${this.state.key}`} className="btn btn-success">Edit</Link>&nbsp;
+            <button onClick={this.delete.bind(this, this.state.key)} className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
